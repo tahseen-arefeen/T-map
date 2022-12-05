@@ -1,5 +1,5 @@
 import time
-import lines
+from lines import green, orange, red, blue
 import fetcher as f
 
 '''
@@ -9,15 +9,15 @@ GLOBAL VARIABLES
 stop_url = "https://api-v3.mbta.com/stops"
 train_url = "https://api-v3.mbta.com/vehicles"
 
-rl = lines.RL()
-ml = lines.ML()
-gl = lines.GL()
-glb = lines.GLB()
-glc = lines.GLC()
-gld = lines.GLD()
-gle = lines.GLE()
-ol = lines.OL()
-bl = lines.BL()
+rl = red.RL()
+ml = red.ML()
+gl = green.GL()
+glb = green.GLB()
+glc = green.GLC()
+gld = green.GLD()
+gle = green.GLE()
+ol = orange.OL()
+bl = blue.BL()
 
 def LocateChain(train_id,station):
     chain_index = 0
@@ -198,8 +198,8 @@ while True:
     try:
         tf = f.FetchAPI(train_url)
         sf = f.FetchAPI(stop_url)
-        #MainLoop()
-        print(len(rl.chain()))
+        MainLoop()
+        
     except:
         print('connection error')
         break

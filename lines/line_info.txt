@@ -1,0 +1,20 @@
+
+    On the issue of transfer stations and forks
+    Park Street = rl
+    Downtown Crossing = rl
+    R10 = rl
+    
+    North Station = ol
+    Haymarket = ol
+    
+    Government Center = bl
+    State = bl
+    
+    G12 = glb
+    G9 = glb
+    G5 = glb
+      
+
+
+
+    
