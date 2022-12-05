@@ -209,17 +209,26 @@ def MainLoop():
     time.sleep(1)
     
     gl.light_clear()
+    glb.light_clear()
+    glc.light_clear()
+    gld.light_clear()
+    gle.light_clear()
+    ol.light_clear()
+    rl.light_clear()
+    ml.light_clear()
+    bl.light_clear()
         
 def RAVE():
     pass         
                
+sf = f.FetchAPI(stop_url)
 
 while True:
     try:
         tf = f.FetchAPI(train_url)
-        sf = f.FetchAPI(stop_url)
+        
         MainLoop()
         
     except:
-        print('connection error')
-        break
+        pass
+        
