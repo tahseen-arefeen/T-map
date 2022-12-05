@@ -20,6 +20,16 @@ ol = orange.OL()
 bl = blue.BL()
 
 def LocateChain(train_id,station):
+    """identifies which led chain train belongs to and identifies exceptions 
+
+    Args:
+        train_id (str): train identification string
+        station (str): station name 
+
+    Returns:
+        chain_index: location of train within led chain 
+        chain_id: led chain identity
+    """
     chain_index = 0
     chain = 'null'
     chain_id = 'null'
@@ -109,7 +119,21 @@ def LocateChain(train_id,station):
     return chain_index, chain_id
     
 def ChainAdjuster(station,chain_index, chain_id, direction, status,lat,long):
-    
+    """Adjusts chain index to account for train status
+
+    Args:
+        station (str): station name
+        chain_index (int): unadjusted index in chain
+        chain_id (str): identity of chain
+        direction (int): inbound or outbound status
+        status (str): status of train of intrest
+        lat (float): latitude of train of interest
+        long (float): longitude of train of interest
+
+    Returns:
+        true_index: adjusted index within chain
+    """
+
     if chain_id == 'Gbl':
         return chain_index, 'bl'
     
@@ -168,20 +192,16 @@ def MainLoop():
             chain_index, chain_id = LocateChain(train_id,station)
             lat = f.FindLat(train_id)
             long = f.FindLong(train_id)
-            
-            line = getattr(lines,chain_id)
-            
+
             result = ChainAdjuster(train_id, chain_index, chain_id, direction, status,lat,long)
-            
-            line.light_train(result)
+           
             
             if result != None:
                 chain_index = result[0]
                 chain_id = result[1]
+                print(chain_index,chain_id)
                 
-                line = getattr(lines,chain_id)
-                
-                line.light_train(chain_index)
+                chain_id.light_train(chain_index)
             
         except:
             pass
