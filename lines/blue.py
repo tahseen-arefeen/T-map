@@ -31,8 +31,8 @@ class BL(BlueLine):
         stations = [0, 1, 3, 5, 7, 9, 11, 13, 15, 17, 18, 20]
         
         for i in stations:
-            station_index = stations[i]
-            self.pixels[station_index] = WHITE
+            #station_index = stations[i]
+            self.pixels[i] = WHITE
     
     def light_train(self,index):
         self.pixels[index] = BLUE

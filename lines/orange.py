@@ -31,8 +31,7 @@ class OL(OrangeLine):
         stations = [0, 2, 5, 8, 10, 12, 13, 15, 16, 18, 20, 22, 23, 25, 27, 29, 31]
 
         for i in stations:
-            station_index = stations[i]
-            self.pixels[station_index] = WHITE
+            self.pixels[i] = WHITE
     
     def light_train(self,index):
         self.pixels[index] = ORANGE

@@ -10,9 +10,15 @@ stop_url = "https://api-v3.mbta.com/stops"
 train_url = "https://api-v3.mbta.com/vehicles"
 
 def FetchAPI(url):
-    '''
-    Goes to API and gets raw data from MBTA creates data frame
-    '''
+    """all purpose api fetcher
+
+    Args:
+        url (str): url for api to fetch_
+
+    Returns:
+        sf: dataframe for raw stop data from mbta
+        tf: dataframe for raw train data from mbta
+    """
     
     if url == stop_url: # see if accessing stops
         bearer_token = os.environ.get('a2d93c719b8349d0905b19cc9e250e02')
@@ -37,6 +43,14 @@ def FetchAPI(url):
         return tf
         
 def FindStation(train_id):
+    """Finds station associated with train
+
+    Args:
+        train_id (str): train identity code
+
+    Returns:
+        platform_name: name of station 
+    """
     tf_index = int((tf[tf["id"]==train_id].index.values))
     relationships = tf.iloc[tf_index,3]
     stop = relationships.get("stop")
@@ -52,9 +66,14 @@ def FindStation(train_id):
     return platform_name
 
 def FindDirectionId(train_id):
-    '''
-    Find if train is inbound (0) or outbound (1)
-    '''
+    """finds direction id (0 inbound) (1 outbound) 
+
+    Args:
+        train_id (str): train id code
+
+    Returns:
+        id (int): status of train direction
+    """
     index = int((tf[tf["id"]==train_id].index.values))
     attributes = tf.iloc[index,0]
     
@@ -62,6 +81,14 @@ def FindDirectionId(train_id):
     return(id)
 
 def FindStatus(train_id):
+    """Finds status of trains
+
+    Args:
+        train_id (str): train id code
+
+    Returns:
+        status (str): current status of train
+    """
     index = int((tf[tf["id"]==train_id].index.values))
     attributes = tf.iloc[index,0]
     
@@ -69,6 +96,14 @@ def FindStatus(train_id):
     return(status)
 
 def FindLat(train_id):
+    """Finds latitude of train
+
+    Args:
+        train_id (str): train id code
+    
+    Returns:
+        lat (float): latitude of train
+    """
     index = int((tf[tf["id"]==train_id].index.values))
     attributes = tf.iloc[index,0]
     
@@ -76,6 +111,14 @@ def FindLat(train_id):
     return(lat)
 
 def FindLong(train_id):
+    """Finds longitude of train
+
+    Args:
+        train_id (str): train id code
+    
+    Returns:
+        long (float): longitude of train
+    """
     index = int((tf[tf["id"]==train_id].index.values))
     attributes = tf.iloc[index,0]
     
@@ -83,10 +126,14 @@ def FindLong(train_id):
     return(long)
 
 class trouble_shoot():
+    """trouble shooting functions to verify functionality of fetch functions
+    """
     def __init__(self):
         pass
     
     def TestFetchAPI(self):
+        """Tests base functionality of API fetcher
+        """
         try:
             tf = FetchAPI(train_url)
             print(tf)
@@ -103,6 +150,13 @@ class trouble_shoot():
             print("Stop Frame Fail")
 
     def TestFindAttribute(self,train_id):
+        """Tests functionality of attribute finder
+
+        if train_id not provided finds random train from each line and prints attributes
+
+        Args:
+            train_id (str): train id code
+        """
         tf = FetchAPI(train_url)
         sf = FetchAPI(stop_url)
         lines = ["Green","Orange","Red","Blue"]
