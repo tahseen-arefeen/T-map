@@ -50,8 +50,9 @@ class RL(RedLine):
         stations = [0, 3, 5, 8, 11, 13, 15, 18, 19, 21, 23, 25, 28, 36, 39, 42, 46, 50]
         
         for i in stations:
-            station_index = stations[i]
-            self.pixels[station_index] = WHITE
+            print(i)
+            
+            self.pixels[i] = WHITE
     
     def light_train(self,index):
         self.pixels[index] = RED
@@ -150,8 +151,7 @@ class ML(RedLine):
         stations = [0, 3, 5, 7, 8, 10, 11, 12, 13, 14, 15]
         
         for i in stations:
-            station_index = stations[i]
-            self.pixels[station_index] = WHITE
+            self.pixels[i] = WHITE
     
     def light_train(self,index):
         self.pixels[index] = RED

@@ -223,6 +223,16 @@ def RAVE():
                
 sf = f.FetchAPI(stop_url)
 
+rl.light_station()
+ml.light_station()
+gl.light_station()
+glb.light_station()
+glc.light_station()
+gld.light_station()
+gle.light_station()
+ol.light_station()
+bl.light_station()
+
 while True:
     try:
         tf = f.FetchAPI(train_url)
