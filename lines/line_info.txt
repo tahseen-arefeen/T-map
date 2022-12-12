@@ -14,6 +14,16 @@
     G9 = glb
     G5 = glb
       
+    Data, Clock
+    D24,D25 = bl
+    D2,D3 = gl
+    D4,D17 = glb
+    D27, D22 = glc
+    D10,D19 = gld
+    D11,D5 = gle
+    D18,D23 = ol
+    D6,D13 = rl
+    D19,D26 = ml
 
 
 

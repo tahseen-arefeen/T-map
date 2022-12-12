@@ -1,0 +1,13 @@
+{
+    "python.languageServer": "Pylance",
+    "python.linting.pylintEnabled": false,
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingModuleSource": "none"
+    },
+    "python.analysis.extraPaths": [
+        "",
+        "/Users/tahseenarefeen/.vscode/extensions/joedevivo.vscode-circuitpython-0.1.19-darwin-arm64/stubs",
+        "/Users/tahseenarefeen/Library/Application Support/Code/User/globalStorage/joedevivo.vscode-circuitpython/bundle/20221209/adafruit-circuitpython-bundle-py-20221209/lib"
+    ],
+    "circuitpython.board.version": null
+}

@@ -23,7 +23,7 @@ class GL(GreenLine):
         self.data_pin = board.D2
         self.clock_pin = board.D3
 
-        self.pixels = dotstar.DotStar(self.data_pin, self.clock_pin, 8, brightness= brightness)
+        self.pixels = dotstar.DotStar(self.data_pin, self.clock_pin, self.num_pixels, brightness= brightness)
         
     def light_station(self):
         stations = [0,2,4,6,7]
@@ -113,7 +113,7 @@ class GLC (GreenLine):
         self.data_pin = board.D27
         self.clock_pin = board.D22
 
-        self.pixels = dotstar.DotStar(self.data_pin, self.clock_pin, 18, brightness= brightness)
+        self.pixels = dotstar.DotStar(self.data_pin, self.clock_pin, self.num_pixels, brightness= brightness)
         
     def light_station(self):
         stations = [0, 2, 3, 4, 6, 8, 9, 10, 12, 13, 14, 16, 17]
@@ -157,7 +157,7 @@ class GLD (GreenLine):
         self.data_pin = board.D10
         self.clock_pin = board.D9
 
-        self.pixels = dotstar.DotStar(self.data_pin, self.clock_pin, 18, brightness= brightness)
+        self.pixels = dotstar.DotStar(self.data_pin, self.clock_pin, self.num_pixels, brightness= brightness)
         
     def light_station(self):
         stations = [3, 4, 6, 7, 9, 11, 13, 16, 17, 18, 22, 25, 27]
@@ -201,7 +201,7 @@ class GLE (GreenLine):
         self.data_pin = board.D11
         self.clock_pin = board.D5
 
-        self.pixels = dotstar.DotStar(self.data_pin, self.clock_pin, 17, brightness= brightness)
+        self.pixels = dotstar.DotStar(self.data_pin, self.clock_pin, self.num_pixels, brightness= brightness)
         
     def light_station(self):
         stations = [0, 2, 4, 7, 8, 10, 11, 12, 13, 14, 16]

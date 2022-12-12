@@ -183,7 +183,6 @@ def ChainAdjuster(station,chain_index, chain_id, direction, status,lat,long):
 def MainLoop():
     for i in range(len(tf)):
         train_id = tf.iloc[i,1]
-        condition = 'pass'
         
         try:
             direction = f.FindDirectionId(train_id)

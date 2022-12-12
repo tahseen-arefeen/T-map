@@ -44,7 +44,7 @@ class RL(RedLine):
         self.num_pixels = len(RL.chain(self))
         self.data_pin = board.D6
         self.clock_pin = board.D13
-        self.pixels = dotstar.DotStar(self.data_pin, self.clock_pin, 51, brightness= brightness)
+        self.pixels = dotstar.DotStar(self.data_pin, self.clock_pin, self.num_pixels, brightness= brightness)
         
     def light_station(self):
         stations = [0, 3, 5, 8, 11, 13, 15, 18, 19, 21, 23, 25, 28, 36, 39, 42, 46, 50]
@@ -145,7 +145,7 @@ class ML(RedLine):
         self.data_pin = board.D19
         self.clock_pin = board.D26
 
-        self.pixels = dotstar.DotStar(self.data_pin, self.clock_pin, 16, brightness= brightness)
+        self.pixels = dotstar.DotStar(self.data_pin, self.clock_pin, self.num_pixels, brightness= brightness)
         
     def light_station(self):
         stations = [0, 3, 5, 7, 8, 10, 11, 12, 13, 14, 15]

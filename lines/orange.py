@@ -25,7 +25,7 @@ class OL(OrangeLine):
         self.data_pin = board.D18
         self.clock_pin = board.D23
 
-        self.pixels = dotstar.DotStar(self.data_pin, self.clock_pin, 32, brightness= brightness)
+        self.pixels = dotstar.DotStar(self.data_pin, self.clock_pin, self.num_pixels, brightness= brightness)
         
     def light_station(self):
         stations = [0, 2, 5, 8, 10, 12, 13, 15, 16, 18, 20, 22, 23, 25, 27, 29, 31]
